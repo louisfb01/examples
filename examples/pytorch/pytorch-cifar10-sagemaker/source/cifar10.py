@@ -6,7 +6,7 @@ import os
 import json
 
 
-wandb.init(project="sm-pytorch-cifar")
+wandb.init(project="sm-pytorch-cifar", id='resume_test', resume='must')
 
 config = wandb.config
 # Set defaults if we dont have values from SageMaker
@@ -82,6 +82,9 @@ optimizer = optim.SGD(net.parameters(), lr=float(
 
 # loop over the dataset multiple times
 for epoch in range(config.epochs):
+
+    if epoch == 5:
+        raise KeyboardInterrupt
 
     running_loss = 0.0
     for i, data in enumerate(trainloader, 0):

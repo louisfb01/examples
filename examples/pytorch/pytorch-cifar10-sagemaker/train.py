@@ -53,7 +53,7 @@ estimator = PyTorch(entry_point="cifar10.py",
                     instance_count=1,
                     instance_type='ml.c5.xlarge',
                     hyperparameters={
-                        'epochs': 50,
+                        'epochs': 10,
                         'momentum': 0.9
                     })
 
