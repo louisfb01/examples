@@ -6,7 +6,7 @@ import os
 import json
 
 
-wandb.init(project="sm-pytorch-cifar", id='resume_test')
+wandb.init(project="sm-pytorch-cifar", id='resume_test', resume='must')
 
 config = wandb.config
 # Set defaults if we dont have values from SageMaker
