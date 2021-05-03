@@ -8,6 +8,8 @@ import json
 
 wandb.init(project="sm-pytorch-cifar", id='resume_test', resume='must')
 
+print(f'train side: resumed? {wandb.run.resumed}')
+
 config = wandb.config
 # Set defaults if we dont have values from SageMaker
 if config.get('batch_size') is None:
