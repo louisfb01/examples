@@ -45,6 +45,8 @@ except botocore.exceptions.ClientError as e:
         path='data', bucket=bucket, key_prefix=prefix)
 print("Using inputs: ", inputs)
 
+print(f'train side: resumed? {wandb.run.resumed}')
+
 estimator = PyTorch(entry_point="cifar10.py",
                     source_dir=os.getcwd() + "/source",
                     role=role,
