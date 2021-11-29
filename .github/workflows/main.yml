@@ -3,14 +3,14 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      CONTEXT_GITHUB: ${{ toJson(github) }}
     steps:
     - uses: actions/checkout@v1
     - uses: actions/setup-python@v1
       with:
         python-version: '3.7'
-    - name: Install the nb helpers
+    - name: Install the nb_helpers
+      env:
+        CONTEXT_GITHUB: ${{ toJson(github) }}
       run: |
         pip install git+ssh://git@github.com/wandb/nb_helpers.git@main
     - name: Check if all notebooks are cleaned
